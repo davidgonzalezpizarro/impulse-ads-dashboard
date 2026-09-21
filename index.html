@@ -1,0 +1,1239 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>IMPULSE · Informe Meta Ads</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --navy: #0F1523;
+    --navy-2: #141c2e;
+    --charcoal: #222323;
+    --card: #1a2233;
+    --card-2: #1f2940;
+    --border: rgba(255,255,255,0.08);
+    --border-strong: rgba(255,255,255,0.16);
+    --white: #FFFFFF;
+    --text: #EDEFF4;
+    --text-muted: #9AA3B7;
+    --text-faint: #6B7488;
+    --red: #DE2F2F;
+    --red-soft: rgba(222,47,47,0.14);
+    --red-text: #FF6B6B;
+    --green: #21C179;
+    --green-soft: rgba(33,193,121,0.14);
+    --green-text: #3EDB94;
+    --amber: #E8A93B;
+    --amber-soft: rgba(232,169,59,0.14);
+    --radius: 14px;
+    --radius-sm: 9px;
+  }
+
+  * { box-sizing: border-box; }
+
+  html, body {
+    margin: 0;
+    padding: 0;
+    background: var(--navy);
+    color: var(--text);
+    font-family: 'Poppins', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  }
+
+  body {
+    padding: 28px 32px 60px;
+    max-width: 1320px;
+    margin: 0 auto;
+  }
+
+  a { color: inherit; }
+
+  h1, h2, h3 { margin: 0; font-weight: 700; }
+
+  ::selection { background: var(--red-soft); }
+
+  /* ---------- Header ---------- */
+
+  header.top {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 20px;
+    flex-wrap: wrap;
+    padding-bottom: 22px;
+    border-bottom: 1px solid var(--border);
+    margin-bottom: 26px;
+  }
+
+  .wordmark {
+    display: flex;
+    align-items: baseline;
+    gap: 10px;
+  }
+
+  .wordmark .name {
+    font-size: 30px;
+    font-weight: 800;
+    letter-spacing: 0.5px;
+    color: var(--white);
+  }
+
+  .wordmark .sub {
+    font-size: 13px;
+    color: var(--text-muted);
+    font-weight: 500;
+  }
+
+  .agency-badge {
+    border: 1.5px solid var(--red);
+    color: var(--text);
+    background: var(--red-soft);
+    padding: 8px 14px;
+    border-radius: 999px;
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: 0.2px;
+    white-space: nowrap;
+  }
+
+  /* ---------- Controls ---------- */
+
+  .controls {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 14px;
+    margin-bottom: 26px;
+  }
+
+  .period-switch {
+    display: inline-flex;
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 999px;
+    padding: 4px;
+    gap: 4px;
+  }
+
+  .period-switch button {
+    border: none;
+    background: transparent;
+    color: var(--text-muted);
+    font-family: inherit;
+    font-size: 13.5px;
+    font-weight: 600;
+    padding: 9px 18px;
+    border-radius: 999px;
+    cursor: pointer;
+    transition: background 0.15s ease, color 0.15s ease;
+  }
+
+  .period-switch button.active {
+    background: var(--red);
+    color: var(--white);
+  }
+
+  .controls-right {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    flex-wrap: wrap;
+  }
+
+  .meta-line {
+    font-size: 12.5px;
+    color: var(--text-faint);
+  }
+
+  .btn-print {
+    border: 1px solid var(--border-strong);
+    background: var(--card);
+    color: var(--text);
+    font-family: inherit;
+    font-size: 13px;
+    font-weight: 600;
+    padding: 9px 16px;
+    border-radius: var(--radius-sm);
+    cursor: pointer;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+  }
+
+  .btn-print:hover { border-color: var(--red); }
+
+  /* ---------- Section shell ---------- */
+
+  section.block {
+    margin-bottom: 34px;
+  }
+
+  .block-head {
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+    margin-bottom: 14px;
+    gap: 10px;
+    flex-wrap: wrap;
+  }
+
+  .block-head h2 {
+    font-size: 17px;
+    color: var(--white);
+  }
+
+  .block-head .hint {
+    font-size: 12.5px;
+    color: var(--text-faint);
+  }
+
+  .card {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 20px;
+  }
+
+  /* ---------- KPIs ---------- */
+
+  .kpi-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 14px;
+  }
+
+  .kpi-card {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 18px 20px;
+  }
+
+  .kpi-card .label {
+    font-size: 12.5px;
+    color: var(--text-muted);
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.4px;
+    margin-bottom: 10px;
+  }
+
+  .kpi-card .value {
+    font-size: 26px;
+    font-weight: 800;
+    color: var(--white);
+    margin-bottom: 8px;
+  }
+
+  .badge-delta {
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+    font-size: 12.5px;
+    font-weight: 700;
+    padding: 3px 9px;
+    border-radius: 999px;
+  }
+
+  .badge-delta.good { background: var(--green-soft); color: var(--green-text); }
+  .badge-delta.bad { background: var(--red-soft); color: var(--red-text); }
+  .badge-delta.neutral { background: rgba(255,255,255,0.06); color: var(--text-muted); }
+
+  .kpi-vs {
+    font-size: 11.5px;
+    color: var(--text-faint);
+    margin-left: 6px;
+  }
+
+  /* ---------- Funnel ---------- */
+
+  .funnel {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 14px;
+  }
+
+  .funnel-step {
+    background: var(--card-2);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 16px 18px;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .funnel-step.is-bottleneck {
+    border-color: var(--red);
+    background: linear-gradient(180deg, var(--red-soft), var(--card-2) 55%);
+  }
+
+  .funnel-step .step-name {
+    font-size: 12.5px;
+    color: var(--text-muted);
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.4px;
+  }
+
+  .funnel-step .step-value {
+    font-size: 24px;
+    font-weight: 800;
+    color: var(--white);
+    margin: 6px 0 8px;
+  }
+
+  .funnel-step .step-meta {
+    display: flex;
+    gap: 14px;
+    font-size: 12px;
+    color: var(--text-faint);
+  }
+
+  .funnel-step .step-meta b { color: var(--text); font-weight: 600; }
+
+  .funnel-bar-track {
+    height: 6px;
+    border-radius: 4px;
+    background: rgba(255,255,255,0.07);
+    margin-top: 12px;
+    overflow: hidden;
+  }
+
+  .funnel-bar-fill {
+    height: 100%;
+    background: var(--red);
+    border-radius: 4px;
+  }
+
+  .bottleneck-tag {
+    position: absolute;
+    top: 12px;
+    right: 12px;
+    font-size: 10.5px;
+    font-weight: 700;
+    color: var(--red-text);
+    background: rgba(222,47,47,0.18);
+    padding: 3px 8px;
+    border-radius: 999px;
+    letter-spacing: 0.3px;
+  }
+
+  .funnel-footer {
+    margin-top: 12px;
+    font-size: 12.5px;
+    color: var(--text-muted);
+    display: flex;
+    gap: 22px;
+    flex-wrap: wrap;
+  }
+
+  .funnel-diagnosis {
+    margin-top: 14px;
+    background: var(--card-2);
+    border: 1px solid var(--border);
+    border-left: 3px solid var(--red);
+    border-radius: var(--radius-sm);
+    padding: 12px 16px;
+    font-size: 13px;
+    color: var(--text);
+  }
+
+  .funnel-diagnosis b { color: var(--red-text); }
+
+  /* ---------- Trend ---------- */
+
+  .trend-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 14px;
+  }
+
+  .trend-card .trend-head {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    margin-bottom: 6px;
+  }
+
+  .trend-card .trend-title {
+    font-size: 13px;
+    font-weight: 700;
+    color: var(--white);
+  }
+
+  .trend-card .trend-current {
+    font-size: 12.5px;
+    color: var(--text-muted);
+  }
+
+  .trend-svg-wrap { margin-top: 4px; }
+
+  .trend-legend {
+    display: flex;
+    justify-content: space-between;
+    font-size: 11px;
+    color: var(--text-faint);
+    margin-top: 4px;
+  }
+
+  .trend-legend .provisional { color: var(--red-text); font-weight: 600; }
+
+  /* ---------- Insights ---------- */
+
+  .insights-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 14px;
+  }
+
+  .insight-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 12px;
+    padding: 12px 14px;
+    border-radius: var(--radius-sm);
+    background: var(--card-2);
+    border: 1px solid var(--border);
+    border-left: 3px solid var(--text-faint);
+    margin-bottom: 8px;
+  }
+
+  .insight-item:last-child { margin-bottom: 0; }
+
+  .insight-item.scale { border-left-color: var(--green); }
+  .insight-item.pause { border-left-color: var(--red); }
+  .insight-item.watch { border-left-color: var(--amber); }
+
+  .insight-name { font-size: 13.5px; font-weight: 600; color: var(--white); }
+  .insight-reason { font-size: 11.5px; color: var(--text-faint); margin-top: 2px; }
+
+  .insight-metrics { text-align: right; font-size: 12px; color: var(--text-muted); white-space: nowrap; }
+  .insight-metrics b { color: var(--white); }
+
+  .action-pill {
+    font-size: 10.5px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.4px;
+    padding: 3px 9px;
+    border-radius: 999px;
+    margin-bottom: 4px;
+    display: inline-block;
+  }
+
+  .action-pill.scale { background: var(--green-soft); color: var(--green-text); }
+  .action-pill.pause { background: var(--red-soft); color: var(--red-text); }
+  .action-pill.watch { background: var(--amber-soft); color: var(--amber); }
+
+  .insight-empty {
+    font-size: 12.5px;
+    color: var(--text-faint);
+    padding: 10px 4px;
+  }
+
+  /* ---------- Rankings ---------- */
+
+  .rankings-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 14px;
+  }
+
+  .rank-list { list-style: none; margin: 0; padding: 0; }
+
+  .rank-row {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 9px 0;
+    border-bottom: 1px solid var(--border);
+    font-size: 12.5px;
+  }
+
+  .rank-row:last-child { border-bottom: none; }
+
+  .rank-pos {
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    background: rgba(255,255,255,0.06);
+    color: var(--text-muted);
+    font-size: 11px;
+    font-weight: 700;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+  }
+
+  .rank-row:first-child .rank-pos { background: var(--red); color: var(--white); }
+
+  .rank-name { flex: 1; min-width: 0; }
+  .rank-name .n { font-weight: 600; color: var(--text); display: block; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+  .rank-name .c { font-size: 10.5px; color: var(--text-faint); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+  .rank-value { font-weight: 700; color: var(--white); white-space: nowrap; }
+
+  /* ---------- Creatives ---------- */
+
+  .creative-top4 {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 14px;
+    margin-bottom: 16px;
+  }
+
+  .creative-card {
+    background: var(--card-2);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    overflow: hidden;
+  }
+
+  .creative-card .img-wrap {
+    width: 100%;
+    aspect-ratio: 1 / 1;
+    background: var(--navy-2);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+  }
+
+  .creative-card .img-wrap img { width: 100%; height: 100%; object-fit: cover; display: block; }
+
+  .creative-card .img-wrap .placeholder {
+    color: var(--text-faint);
+    font-size: 11px;
+    text-align: center;
+    padding: 10px;
+  }
+
+  .creative-card .body { padding: 12px 14px; }
+
+  .creative-card .rank-badge {
+    position: relative;
+    top: 0;
+  }
+
+  .creative-card .cname {
+    font-size: 12.5px;
+    font-weight: 600;
+    color: var(--white);
+    margin: 4px 0 8px;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
+
+  .creative-stat-row {
+    display: flex;
+    justify-content: space-between;
+    font-size: 11.5px;
+    color: var(--text-muted);
+    padding: 3px 0;
+  }
+
+  .creative-stat-row b { color: var(--white); }
+
+  .creative-top10 {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    margin-bottom: 4px;
+  }
+
+  .creative-compact-row {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 8px 10px;
+    background: var(--card-2);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-sm);
+  }
+
+  .creative-compact-row .thumb {
+    width: 40px;
+    height: 40px;
+    border-radius: 8px;
+    overflow: hidden;
+    background: var(--navy-2);
+    flex-shrink: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .creative-compact-row .thumb img { width: 100%; height: 100%; object-fit: cover; }
+  .creative-compact-row .thumb span { font-size: 9px; color: var(--text-faint); }
+
+  .creative-compact-row .info { flex: 1; min-width: 0; }
+  .creative-compact-row .info .n { font-size: 12.5px; font-weight: 600; color: var(--text); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+  .creative-compact-row .info .c { font-size: 10.5px; color: var(--text-faint); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+
+  .creative-compact-row .stats {
+    display: flex;
+    gap: 16px;
+    font-size: 11.5px;
+    color: var(--text-muted);
+    flex-shrink: 0;
+  }
+
+  .creative-compact-row .stats b { color: var(--white); }
+
+  table.creative-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 12px;
+  }
+
+  table.creative-table th, table.creative-table td {
+    padding: 9px 10px;
+    text-align: right;
+    border-bottom: 1px solid var(--border);
+    white-space: nowrap;
+  }
+
+  table.creative-table th:first-child, table.creative-table td:first-child,
+  table.creative-table th:nth-child(2), table.creative-table td:nth-child(2) {
+    text-align: left;
+  }
+
+  table.creative-table th {
+    color: var(--text-muted);
+    font-weight: 600;
+    font-size: 10.5px;
+    text-transform: uppercase;
+    letter-spacing: 0.3px;
+    position: sticky;
+    top: 0;
+    background: var(--card);
+  }
+
+  table.creative-table td { color: var(--text); }
+  table.creative-table td.name-cell { display: flex; align-items: center; gap: 8px; }
+
+  table.creative-table .table-thumb {
+    width: 26px;
+    height: 26px;
+    border-radius: 6px;
+    object-fit: cover;
+    background: var(--navy-2);
+    flex-shrink: 0;
+  }
+
+  .table-scroll {
+    overflow-x: auto;
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+  }
+
+  /* ---------- Footer ---------- */
+
+  footer.bottom {
+    margin-top: 36px;
+    padding-top: 20px;
+    border-top: 1px solid var(--border);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 12px;
+    font-size: 11.5px;
+    color: var(--text-faint);
+  }
+
+  footer.bottom .agency-badge { padding: 6px 12px; font-size: 11px; }
+
+  /* ---------- Loading / error ---------- */
+
+  #loading-overlay {
+    position: fixed;
+    inset: 0;
+    background: var(--navy);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    gap: 12px;
+    z-index: 50;
+  }
+
+  .spinner {
+    width: 34px;
+    height: 34px;
+    border-radius: 50%;
+    border: 3px solid rgba(255,255,255,0.12);
+    border-top-color: var(--red);
+    animation: spin 0.8s linear infinite;
+  }
+
+  @keyframes spin { to { transform: rotate(360deg); } }
+
+  #error-banner {
+    display: none;
+    background: var(--red-soft);
+    border: 1px solid var(--red);
+    color: var(--red-text);
+    padding: 14px 18px;
+    border-radius: var(--radius);
+    font-size: 13px;
+    margin-bottom: 22px;
+  }
+
+  #dashboard-root { display: none; }
+
+  /* ---------- Responsive ---------- */
+
+  @media (max-width: 1080px) {
+    .kpi-grid, .funnel, .trend-grid, .rankings-grid { grid-template-columns: repeat(2, 1fr); }
+    .creative-top4 { grid-template-columns: repeat(2, 1fr); }
+    .insights-grid { grid-template-columns: 1fr; }
+  }
+
+  @media (max-width: 620px) {
+    body { padding: 20px 16px 40px; }
+    .kpi-grid, .funnel, .trend-grid, .rankings-grid, .creative-top4 { grid-template-columns: 1fr; }
+  }
+
+  /* ---------- Print ---------- */
+
+  @media print {
+    :root {
+      --navy: #FFFFFF;
+      --navy-2: #F3F3F4;
+      --charcoal: #222323;
+      --card: #FFFFFF;
+      --card-2: #F6F6F7;
+      --border: #DDDDDD;
+      --border-strong: #CCCCCC;
+      --white: #111111;
+      --text: #222323;
+      --text-muted: #4A4A4A;
+      --text-faint: #6B6B6B;
+      --red-soft: #FBE3E3;
+      --red-text: #B71F1F;
+      --green-soft: #E1F7EC;
+      --green-text: #157A4C;
+      --amber-soft: #FCF0DB;
+      --amber: #8A5B0B;
+    }
+
+    body { padding: 0 12px; }
+    .btn-print, .period-switch { display: none !important; }
+    .card, .kpi-card, .funnel-step, .creative-card, .creative-compact-row, .insight-item, .trend-card {
+      box-shadow: none !important;
+      border-color: var(--border) !important;
+    }
+    section.block { page-break-inside: avoid; }
+    table.creative-table th { background: var(--card); }
+    a { text-decoration: none; }
+  }
+</style>
+</head>
+<body>
+
+<div id="loading-overlay">
+  <div class="spinner"></div>
+  <div class="meta-line">Cargando datos de Meta Ads desde Windsor…</div>
+</div>
+
+<header class="top">
+  <div class="wordmark">
+    <span class="name">IMPULSE</span>
+    <span class="sub">Nutrición y composición corporal · Badalona</span>
+  </div>
+  <div class="agency-badge">Informe Meta Ads · David González Pizarro — Consultor Ecommerce</div>
+</header>
+
+<div id="error-banner"></div>
+
+<div id="dashboard-root">
+
+  <div class="controls">
+    <div class="period-switch" id="period-switch">
+      <button data-period="current" class="active">Mes en curso</button>
+      <button data-period="lastFull">Mes anterior completo</button>
+    </div>
+    <div class="controls-right">
+      <span class="meta-line" id="meta-line"></span>
+      <button class="btn-print" onclick="window.print()">Exportar a PDF</button>
+    </div>
+  </div>
+
+  <section class="block">
+    <div class="block-head">
+      <h2>KPIs principales</h2>
+      <span class="hint" id="kpi-hint"></span>
+    </div>
+    <div class="kpi-grid" id="kpi-grid"></div>
+  </section>
+
+  <section class="block">
+    <div class="block-head">
+      <h2>Embudo de conversión</h2>
+      <span class="hint">Clics → Visitas web → Leads (sesión diagnóstica)</span>
+    </div>
+    <div class="funnel" id="funnel-grid"></div>
+    <div class="funnel-diagnosis" id="funnel-diagnosis"></div>
+  </section>
+
+  <section class="block">
+    <div class="block-head">
+      <h2>Tendencia (últimos 3 meses)</h2>
+      <span class="hint">El mes en curso es un dato provisional</span>
+    </div>
+    <div class="trend-grid" id="trend-grid"></div>
+  </section>
+
+  <section class="block">
+    <div class="block-head">
+      <h2>Escalar / Revisar-pausar</h2>
+      <span class="hint">CPL vs. media de la cuenta · mínimo 15&nbsp;€ de inversión</span>
+    </div>
+    <div class="insights-grid">
+      <div class="card">
+        <h3 style="font-size:13px;color:var(--text-muted);margin-bottom:10px;text-transform:uppercase;letter-spacing:0.4px;">Por campaña</h3>
+        <div id="insights-campaigns"></div>
+      </div>
+      <div class="card">
+        <h3 style="font-size:13px;color:var(--text-muted);margin-bottom:10px;text-transform:uppercase;letter-spacing:0.4px;">Por audiencia</h3>
+        <div id="insights-audiences"></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="block">
+    <div class="block-head">
+      <h2>Rankings</h2>
+      <span class="hint">Top 5 · mínimo 10&nbsp;€ de inversión</span>
+    </div>
+    <div class="rankings-grid">
+      <div class="card">
+        <h3 style="font-size:13px;color:var(--text-muted);margin-bottom:6px;text-transform:uppercase;letter-spacing:0.4px;">Mejor CPL</h3>
+        <ul class="rank-list" id="rank-cpl"></ul>
+      </div>
+      <div class="card">
+        <h3 style="font-size:13px;color:var(--text-muted);margin-bottom:6px;text-transform:uppercase;letter-spacing:0.4px;">Mejor conversión (visita → lead)</h3>
+        <ul class="rank-list" id="rank-conv"></ul>
+      </div>
+      <div class="card">
+        <h3 style="font-size:13px;color:var(--text-muted);margin-bottom:6px;text-transform:uppercase;letter-spacing:0.4px;">Mejor CTR</h3>
+        <ul class="rank-list" id="rank-ctr"></ul>
+      </div>
+    </div>
+  </section>
+
+  <section class="block">
+    <div class="block-head">
+      <h2>Creatividades</h2>
+      <span class="hint">Ordenadas por leads</span>
+    </div>
+
+    <div class="creative-top4" id="creative-top4"></div>
+    <div class="creative-top10" id="creative-top10"></div>
+
+    <div class="block-head" style="margin-top:20px;">
+      <h3 style="font-size:14px;color:var(--white);">Todas las creatividades con gasto</h3>
+    </div>
+    <div class="table-scroll">
+      <table class="creative-table" id="creative-table">
+        <thead>
+          <tr>
+            <th>Creatividad</th>
+            <th>Campaña / Audiencia</th>
+            <th>Leads</th>
+            <th>CPL</th>
+            <th>CTR</th>
+            <th>Visitas</th>
+            <th>Leads/Visita</th>
+            <th>Frecuencia</th>
+            <th>CPM</th>
+            <th>Inversión</th>
+          </tr>
+        </thead>
+        <tbody id="creative-table-body"></tbody>
+      </table>
+    </div>
+  </section>
+
+</div>
+
+<footer class="bottom">
+  <span>© <span id="footer-year"></span> David González Pizarro · davidgonzalezp.com</span>
+  <span class="agency-badge">Informe Meta Ads · David González Pizarro — Consultor Ecommerce</span>
+</footer>
+
+<script>
+(function () {
+  'use strict';
+
+  var API_URL = '/.netlify/functions/meta-ads';
+  var currentPeriod = 'current';
+  var lastData = null;
+
+  // ---------------- Formatters ----------------
+
+  var eurFmt0 = new Intl.NumberFormat('es-ES', { style: 'currency', currency: 'EUR', maximumFractionDigits: 0 });
+  var eurFmt2 = new Intl.NumberFormat('es-ES', { style: 'currency', currency: 'EUR', maximumFractionDigits: 2, minimumFractionDigits: 2 });
+  var intFmt = new Intl.NumberFormat('es-ES');
+
+  function money(v) {
+    if (v == null || Number.isNaN(v)) return '—';
+    return (Math.abs(v) < 100 ? eurFmt2 : eurFmt0).format(v);
+  }
+
+  function pct(v, decimals) {
+    if (v == null || Number.isNaN(v)) return '—';
+    return v.toFixed(decimals == null ? 1 : decimals) + '%';
+  }
+
+  function int(v) {
+    if (v == null || Number.isNaN(v)) return '—';
+    return intFmt.format(Math.round(v));
+  }
+
+  function esc(s) {
+    var d = document.createElement('div');
+    d.textContent = s == null ? '' : String(s);
+    return d.innerHTML;
+  }
+
+  // ---------------- Fetch ----------------
+
+  function loadPeriod(period) {
+    currentPeriod = period;
+    document.querySelectorAll('#period-switch button').forEach(function (b) {
+      b.classList.toggle('active', b.dataset.period === period);
+    });
+    showLoading();
+    fetch(API_URL + '?period=' + encodeURIComponent(period))
+      .then(function (res) {
+        return res.json().then(function (body) {
+          if (!res.ok) throw new Error(body && body.error ? body.error : ('Error ' + res.status));
+          return body;
+        });
+      })
+      .then(function (data) {
+        lastData = data;
+        hideError();
+        render(data);
+        hideLoading();
+      })
+      .catch(function (err) {
+        hideLoading();
+        showError(err.message || String(err));
+      });
+  }
+
+  function showLoading() {
+    document.getElementById('loading-overlay').style.display = 'flex';
+  }
+  function hideLoading() {
+    document.getElementById('loading-overlay').style.display = 'none';
+    document.getElementById('dashboard-root').style.display = 'block';
+  }
+  function showError(msg) {
+    var el = document.getElementById('error-banner');
+    el.textContent = 'No se pudo cargar el informe: ' + msg;
+    el.style.display = 'block';
+  }
+  function hideError() {
+    document.getElementById('error-banner').style.display = 'none';
+  }
+
+  // ---------------- Render: root ----------------
+
+  function render(data) {
+    document.getElementById('meta-line').textContent =
+      data.meta.rangeLabel + '  ·  comparado con ' + data.meta.comparisonRangeLabel +
+      '  ·  actualizado ' + new Date(data.meta.generatedAt).toLocaleString('es-ES', { dateStyle: 'medium', timeStyle: 'short' });
+    document.getElementById('kpi-hint').textContent = data.meta.periodLabel;
+    document.getElementById('footer-year').textContent = new Date().getFullYear();
+
+    renderKpis(data.kpis);
+    renderFunnel(data.funnel);
+    renderTrend(data.trend);
+    renderInsights(data.insights);
+    renderRankings(data.rankings);
+    renderCreatives(data.creatives);
+  }
+
+  // ---------------- KPIs ----------------
+
+  function deltaBadge(kpiBlock, formatter) {
+    if (kpiBlock.deltaPct == null) {
+      return '<span class="badge-delta neutral">— sin datos previos</span>';
+    }
+    var dir = kpiBlock.deltaPct > 0 ? '▲' : (kpiBlock.deltaPct < 0 ? '▼' : '–');
+    var cls = kpiBlock.good === true ? 'good' : (kpiBlock.good === false ? 'bad' : 'neutral');
+    return '<span class="badge-delta ' + cls + '">' + dir + ' ' + Math.abs(kpiBlock.deltaPct).toFixed(1) + '%</span>';
+  }
+
+  function renderKpis(kpis) {
+    var cards = [
+      { label: 'Leads', block: kpis.leads, fmt: int },
+      { label: 'Inversión', block: kpis.spend, fmt: money },
+      { label: 'CPL (coste por lead)', block: kpis.cpl, fmt: money },
+      { label: 'Tasa de conversión (visita → lead)', block: kpis.leadRate, fmt: function (v) { return pct(v); } },
+    ];
+    var html = cards.map(function (c) {
+      return '' +
+        '<div class="kpi-card">' +
+          '<div class="label">' + esc(c.label) + '</div>' +
+          '<div class="value">' + c.fmt(c.block.value) + '</div>' +
+          deltaBadge(c.block) +
+          '<span class="kpi-vs">vs. periodo anterior</span>' +
+        '</div>';
+    }).join('');
+    document.getElementById('kpi-grid').innerHTML = html;
+  }
+
+  // ---------------- Funnel ----------------
+
+  function renderFunnel(funnel) {
+    var maxValue = funnel.steps[0].value || 1;
+    var html = funnel.steps.map(function (step) {
+      var isBottleneck = funnel.bottleneck && funnel.bottleneck.isBottleneck && funnel.bottleneck.stepKey === step.key;
+      var widthPct = Math.max(4, Math.min(100, (step.value / maxValue) * 100));
+      return '' +
+        '<div class="funnel-step' + (isBottleneck ? ' is-bottleneck' : '') + '">' +
+          (isBottleneck ? '<span class="bottleneck-tag">Cuello de botella</span>' : '') +
+          '<div class="step-name">' + esc(step.name) + '</div>' +
+          '<div class="step-value">' + int(step.value) + '</div>' +
+          '<div class="step-meta">' +
+            '<span>Coste: <b>' + money(step.cost) + '</b></span>' +
+            (step.convPct != null ? '<span>Conversión: <b>' + pct(step.convPct) + '</b></span>' : '') +
+          '</div>' +
+          '<div class="funnel-bar-track"><div class="funnel-bar-fill" style="width:' + widthPct + '%"></div></div>' +
+        '</div>';
+    }).join('');
+    document.getElementById('funnel-grid').innerHTML = html;
+
+    var diagEl = document.getElementById('funnel-diagnosis');
+    if (funnel.bottleneck && funnel.bottleneck.isBottleneck) {
+      diagEl.innerHTML = 'Diagnóstico automático: el paso <b>' + esc(funnel.bottleneck.step) + '</b> (' + esc(funnel.bottleneck.label) +
+        ') convierte al ' + pct(funnel.bottleneck.convPct) + ', por debajo del ' + pct(funnel.bottleneck.benchmarkPct, 0) +
+        ' de referencia. Es el punto del embudo con más margen de mejora. Frecuencia media: <b>' + funnel.frequency + '</b>.';
+      diagEl.style.display = 'block';
+    } else if (funnel.bottleneck) {
+      diagEl.innerHTML = 'Diagnóstico automático: el embudo está sano — todos los pasos igualan o superan su referencia habitual. Frecuencia media: <b>' + funnel.frequency + '</b>.';
+      diagEl.style.display = 'block';
+    } else {
+      diagEl.style.display = 'none';
+    }
+  }
+
+  // ---------------- Trend (SVG a mano) ----------------
+
+  function buildSparkline(points, formatter) {
+    // points: [{label, value, provisional}]
+    var W = 280, H = 90, padX = 26, padY = 16;
+    var values = points.map(function (p) { return p.value; });
+    var min = Math.min.apply(null, values);
+    var max = Math.max.apply(null, values);
+    if (min === max) { min -= 1; max += 1; }
+    var n = points.length;
+
+    function xAt(i) { return padX + (i / Math.max(1, n - 1)) * (W - padX * 2); }
+    function yAt(v) { return H - padY - ((v - min) / (max - min)) * (H - padY * 2); }
+
+    var coords = points.map(function (p, i) { return [xAt(i), yAt(p.value)]; });
+
+    var linePath = coords.map(function (c, i) {
+      return (i === 0 ? 'M' : 'L') + c[0].toFixed(1) + ',' + c[1].toFixed(1);
+    }).join(' ');
+
+    var circles = coords.map(function (c, i) {
+      var provisional = points[i].provisional;
+      return '<circle cx="' + c[0].toFixed(1) + '" cy="' + c[1].toFixed(1) + '" r="' + (provisional ? 4.5 : 3.5) + '" ' +
+        'style="fill:' + (provisional ? 'var(--navy)' : 'var(--red)') + ';stroke:var(--red);stroke-width:' + (provisional ? 2 : 0) + ';" />';
+    }).join('');
+
+    var labels = points.map(function (p, i) {
+      var c = coords[i];
+      return '<text x="' + c[0].toFixed(1) + '" y="' + (H - 2) + '" font-size="9.5" text-anchor="middle" style="fill:var(--text-faint);font-family:Poppins,sans-serif;">' + esc(p.label) + '</text>';
+    }).join('');
+
+    var valueLabels = points.map(function (p, i) {
+      var c = coords[i];
+      return '<text x="' + c[0].toFixed(1) + '" y="' + (c[1] - 9).toFixed(1) + '" font-size="10.5" font-weight="700" text-anchor="middle" style="fill:var(--white);font-family:Poppins,sans-serif;">' + formatter(p.value) + '</text>';
+    }).join('');
+
+    var dashedLastSegment = '';
+    if (n >= 2 && points[n - 1].provisional) {
+      var c1 = coords[n - 2], c2 = coords[n - 1];
+      dashedLastSegment = '<line x1="' + c1[0].toFixed(1) + '" y1="' + c1[1].toFixed(1) + '" x2="' + c2[0].toFixed(1) + '" y2="' + c2[1].toFixed(1) + '" style="stroke:var(--red);stroke-width:2;stroke-dasharray:4,3;" />';
+    }
+
+    return '' +
+      '<svg viewBox="0 0 ' + W + ' ' + H + '" width="100%" height="' + H + '" xmlns="http://www.w3.org/2000/svg">' +
+        '<path d="' + linePath + '" fill="none" style="stroke:var(--red);stroke-width:2;opacity:0.55;" />' +
+        dashedLastSegment +
+        valueLabels +
+        circles +
+        labels +
+      '</svg>';
+  }
+
+  function renderTrend(trend) {
+    if (!trend || !trend.length) {
+      document.getElementById('trend-grid').innerHTML = '<div class="card"><span class="meta-line">No hay suficientes datos históricos todavía.</span></div>';
+      return;
+    }
+    var metrics = [
+      { key: 'cpc', title: 'CPC (coste por clic)', fmt: money },
+      { key: 'cpl', title: 'CPL (coste por lead)', fmt: money },
+      { key: 'leadRate', title: 'Tasa de conversión (visita → lead)', fmt: function (v) { return pct(v); } },
+    ];
+    var html = metrics.map(function (m) {
+      var points = trend.map(function (t) {
+        var label = t.label.charAt(0).toUpperCase() + t.label.slice(1);
+        return { label: label, value: t[m.key], provisional: t.provisional };
+      });
+      var last = trend[trend.length - 1];
+      return '' +
+        '<div class="card trend-card">' +
+          '<div class="trend-head">' +
+            '<span class="trend-title">' + esc(m.title) + '</span>' +
+            '<span class="trend-current">' + m.fmt(last[m.key]) + '</span>' +
+          '</div>' +
+          '<div class="trend-svg-wrap">' + buildSparkline(points, m.fmt) + '</div>' +
+          '<div class="trend-legend"><span>Últimos ' + trend.length + ' meses</span><span class="provisional">● mes en curso = provisional</span></div>' +
+        '</div>';
+    }).join('');
+    document.getElementById('trend-grid').innerHTML = html;
+  }
+
+  // ---------------- Insights (Escalar / Pausar) ----------------
+
+  function renderInsightList(containerId, items) {
+    var el = document.getElementById(containerId);
+    if (!items || !items.length) {
+      el.innerHTML = '<div class="insight-empty">Sin datos suficientes (por debajo del mínimo de inversión) en este periodo.</div>';
+      return;
+    }
+    var actionLabel = { scale: 'Escalar', pause: 'Pausar / revisar', watch: 'Mantener' };
+    el.innerHTML = items.map(function (item) {
+      return '' +
+        '<div class="insight-item ' + item.action + '">' +
+          '<div>' +
+            '<span class="action-pill ' + item.action + '">' + actionLabel[item.action] + '</span>' +
+            '<div class="insight-name">' + esc(item.name) + '</div>' +
+            '<div class="insight-reason">' + esc(item.reason) + '</div>' +
+          '</div>' +
+          '<div class="insight-metrics">' +
+            '<div>CPL <b>' + money(item.cpl) + '</b></div>' +
+            '<div>' + int(item.leads) + ' leads · ' + money(item.spend) + '</div>' +
+          '</div>' +
+        '</div>';
+    }).join('');
+  }
+
+  function renderInsights(insights) {
+    renderInsightList('insights-campaigns', insights.campaigns);
+    renderInsightList('insights-audiences', insights.audiences);
+  }
+
+  // ---------------- Rankings ----------------
+
+  function renderRankList(containerId, items, formatter) {
+    var el = document.getElementById(containerId);
+    if (!items || !items.length) {
+      el.innerHTML = '<li class="insight-empty">Sin datos suficientes en este periodo.</li>';
+      return;
+    }
+    el.innerHTML = items.map(function (item, i) {
+      return '' +
+        '<li class="rank-row">' +
+          '<span class="rank-pos">' + (i + 1) + '</span>' +
+          '<span class="rank-name"><span class="n">' + esc(item.name) + '</span><span class="c">' + esc(item.campaign) + '</span></span>' +
+          '<span class="rank-value">' + formatter(item.value) + '</span>' +
+        '</li>';
+    }).join('');
+  }
+
+  function renderRankings(rankings) {
+    renderRankList('rank-cpl', rankings.bestCpl, money);
+    renderRankList('rank-conv', rankings.bestConversion, function (v) { return pct(v); });
+    renderRankList('rank-ctr', rankings.bestCtr, function (v) { return pct(v); });
+  }
+
+  // ---------------- Creatives ----------------
+
+  function imgOrPlaceholder(url, cls) {
+    if (url) return '<img class="' + cls + '" src="' + esc(url) + '" alt="" loading="lazy" onerror="this.parentElement.innerHTML=\'<span class=&quot;placeholder&quot;>Sin imagen</span>\'">';
+    return '<span class="placeholder">Sin imagen</span>';
+  }
+
+  function renderCreatives(creatives) {
+    var top4 = creatives.top4 || [];
+    document.getElementById('creative-top4').innerHTML = top4.map(function (c, i) {
+      return '' +
+        '<div class="creative-card">' +
+          '<div class="img-wrap">' + imgOrPlaceholder(c.image, '') + '</div>' +
+          '<div class="body">' +
+            '<span class="rank-pos" style="' + (i === 0 ? 'background:var(--red);color:var(--white);' : '') + '">' + (i + 1) + '</span>' +
+            '<div class="cname">' + esc(c.name) + '</div>' +
+            '<div class="creative-stat-row"><span>Leads</span><b>' + int(c.leads) + '</b></div>' +
+            '<div class="creative-stat-row"><span>CPL</span><b>' + money(c.cpl) + '</b></div>' +
+            '<div class="creative-stat-row"><span>Inversión</span><b>' + money(c.spend) + '</b></div>' +
+          '</div>' +
+        '</div>';
+    }).join('');
+
+    var top10 = creatives.top10 || [];
+    document.getElementById('creative-top10').innerHTML = top10.map(function (c, i) {
+      return '' +
+        '<div class="creative-compact-row">' +
+          '<span class="rank-pos" style="' + (i === 0 ? 'background:var(--red);color:var(--white);' : '') + '">' + (i + 1) + '</span>' +
+          '<div class="thumb">' + imgOrPlaceholder(c.image, '') + '</div>' +
+          '<div class="info"><div class="n">' + esc(c.name) + '</div><div class="c">' + esc(c.campaign) + ' · ' + esc(c.audience) + '</div></div>' +
+          '<div class="stats">' +
+            '<span>Leads <b>' + int(c.leads) + '</b></span>' +
+            '<span>CPL <b>' + money(c.cpl) + '</b></span>' +
+            '<span>CTR <b>' + pct(c.ctr) + '</b></span>' +
+          '</div>' +
+        '</div>';
+    }).join('');
+
+    var all = creatives.all || [];
+    document.getElementById('creative-table-body').innerHTML = all.map(function (c, i) {
+      var nameCell = i < 10
+        ? '<td class="name-cell">' + (c.image ? '<img class="table-thumb" src="' + esc(c.image) + '" alt="" loading="lazy" onerror="this.style.display=\'none\'">' : '') + '<span>' + esc(c.name) + '</span></td>'
+        : '<td>' + esc(c.name) + '</td>';
+      return '' +
+        '<tr>' +
+          nameCell +
+          '<td>' + esc(c.campaign) + ' / ' + esc(c.audience) + '</td>' +
+          '<td>' + int(c.leads) + '</td>' +
+          '<td>' + money(c.cpl) + '</td>' +
+          '<td>' + pct(c.ctr) + '</td>' +
+          '<td>' + int(c.landingPageViews) + '</td>' +
+          '<td>' + pct(c.leadRate) + '</td>' +
+          '<td>' + c.frequency + '</td>' +
+          '<td>' + money(c.cpm) + '</td>' +
+          '<td>' + money(c.spend) + '</td>' +
+        '</tr>';
+    }).join('');
+  }
+
+  // ---------------- Init ----------------
+
+  document.getElementById('period-switch').addEventListener('click', function (e) {
+    var btn = e.target.closest('button[data-period]');
+    if (!btn || btn.classList.contains('active')) return;
+    loadPeriod(btn.dataset.period);
+  });
+
+  loadPeriod(currentPeriod);
+})();
+</script>
+
+</body>
+</html>
